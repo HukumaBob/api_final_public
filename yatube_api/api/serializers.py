@@ -41,12 +41,6 @@ class FollowSerializer(serializers.ModelSerializer):
         slug_field='username',
         queryset=User.objects.all(),
     )
-    validators = [
-        UniqueTogetherValidator(
-            queryset=Follow.objects.all(),
-            fields=['user', 'following']
-        )
-    ]
 
     def validate(self, data):
         if data['user'] == data['following']:
@@ -58,3 +52,8 @@ class FollowSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Follow
+        validators = [
+            UniqueTogetherValidator(queryset=Follow.objects.all(),
+                                    fields=['user', 'following'],
+                                    )
+        ]

@@ -22,7 +22,7 @@
 
 <h4><i>3.Activate virtual environment</i></h4>
 
-    source venv\Scripts\activate
+    source venv/Scripts/activate
 
 <h4><i>4.Install python packages:</i></h4>
 
